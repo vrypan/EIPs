@@ -3,7 +3,7 @@ eip: eip-draft_time_limited_token_allowances
 title: time-limited token allowances 
 description: Extend EIP-20 approve() functionality in a way that the user can set a block number limit after which the approval expires.
 author: Panagiotis Vryonis (@vrypan)
-discussions-to: <URL>
+discussions-to: https://ethereum-magicians.org/t/time-limited-erc-20-approvals/7749
 status: Draft
 type: Standards
 category (*only required for Standards Track): ERC
