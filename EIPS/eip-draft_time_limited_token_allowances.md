@@ -37,7 +37,7 @@ Two new functions are added to the ERC20 ABI:
 
 #### approveWithExpiration
 ```sol
-function approveWithLimit(address _spender, uint256 _value, uint256 _blocks) public returns (bool success)
+function approveWithExpiration(address _spender, uint256 _value, uint256 _blocks) public returns (bool success)
 ```
 
 Just like ERC20 ``approve`` this function allows `_spender` to withdraw from your account multiple times, up to the `_value` amount.
@@ -91,7 +91,7 @@ Transfers `_value` amount of tokens from address `_from` to address `_to`, and M
 
 ## Rationale
 
-Allowance expiration is based on block numbers and not timestamps in order to allow uses where ``approveWithLimit`` and ``transferFrom`` are executed in a single transaction (for example, flash loans). In this case, ``approveWithLimit`` can be called with ``_blocks=0``.
+Allowance expiration is based on block numbers and not timestamps in order to allow uses where ``approveWithExpiration`` and ``transferFrom`` are executed in a single transaction (for example, flash loans). In this case, ``approveWithExpiration`` can be called with ``_blocks=0``.
 
 In order to maintain backwards compatibility with ERC20, each smart contract must define ``DEFAULT_ALLOWANCE_BLOCKS`` (the default value for ``_blocks`` when ``approve`` is used). An alternative would be to make the default value of ``uint(-1)`` part of this EIP. However, this would limit smart contracts that want to provide a default value that better suits their and their users needs.
 
